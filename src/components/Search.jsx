@@ -3,7 +3,7 @@ function Search({ search, setSearch }) {
     <div className="searchbar">
       <input
         type="text"
-        placeholder="Search plants..."
+        placeholder="Type a name to search..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
