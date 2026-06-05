@@ -15,31 +15,10 @@ function App() {
       .then((data) => setPlants(data));
   }, []);
 
-
   function handleAddPlant(newPlant) {
     setPlants((prevPlants) => [...prevPlants, newPlant]);
   }
 
- 
-  function handleSoldOut(id) {
-    fetch(`${API_URL}/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ inStock: false }),
-    })
-      .then((res) => res.json())
-      .then((updatedPlant) => {
-        setPlants((prevPlants) =>
-          prevPlants.map((plant) =>
-            plant.id === id ? updatedPlant : plant
-          )
-        );
-      });
-  }
-
-  
   const displayedPlants = plants.filter((plant) =>
     plant.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -48,15 +27,12 @@ function App() {
     <div className="App">
       <Header />
 
-   
       <NewPlantForm onAddPlant={handleAddPlant} />
 
-      
       <PlantPage
         plants={displayedPlants}
         search={search}
         setSearch={setSearch}
-        onSoldOut={handleSoldOut}
       />
     </div>
   );

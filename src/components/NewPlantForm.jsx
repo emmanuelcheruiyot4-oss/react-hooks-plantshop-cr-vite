@@ -20,9 +20,9 @@ function NewPlantForm({ onAddPlant }) {
     e.preventDefault();
 
     const newPlant = {
-      ...formData,
-      price: Number(formData.price),
-      inStock: true,
+      name: formData.name,
+      image: formData.image,
+      price: formData.price,
     };
 
     fetch(API_URL, {
