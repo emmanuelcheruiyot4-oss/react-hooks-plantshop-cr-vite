@@ -48,10 +48,10 @@ function App() {
     <div className="App">
       <Header />
 
-      {/* Add plant form */}
+   
       <NewPlantForm onAddPlant={handleAddPlant} />
 
-      {/* Main page (search + list) */}
+      
       <PlantPage
         plants={displayedPlants}
         search={search}
